@@ -2,6 +2,7 @@
 package com.codes.service;
 
 import com.codes.dto.StudyPlan;
+import com.codes.tools.Calculater;
 import dev.langchain4j.memory.chat.MessageWindowChatMemory;
 import dev.langchain4j.model.chat.StreamingChatModel;
 import dev.langchain4j.model.googleai.GoogleAiGeminiStreamingChatModel;
@@ -20,6 +21,7 @@ public class ChatHelper {
                                     .maxMessages(10)
                                     .build()
                     )
+                    .tools(new Calculater())
                     .build();
 
     public static TokenStream getResponse(
